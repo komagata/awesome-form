@@ -299,6 +299,13 @@ function radio_button($name, $value, $options = array()) {
     return "<input type=\"radio\" name=\"{$name}\" value=\"{$value}\"{$p}{$checked} />";
 }
 
+function check_box($name, $value = '1', $options = array()) {
+    $v = isset($_REQUEST[$name]) ? $_REQUEST[$name] : '';
+    $p = build_attributes($options);
+    $checked = $v === $value ? ' checked="checked"' : '';
+    return "<input type=\"checkbox\" name=\"{$name}\" value=\"{$value}\"{$p}{$checked} />";
+}
+
 function html_options($options, $selected = null) {
     $html = '';
     foreach ($options as $key => $value) {
