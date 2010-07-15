@@ -123,6 +123,14 @@ function validate_format_of($name, $options = array()) {
     }
 }
 
+function validate_acceptance_of($name, $options = array()) {
+    global $_ERROR;
+    if (!isset($options['accept'])) $options['accept'] = '1';
+    if ($_REQUEST[$name] != $options['accept']) {
+        $_ERROR[] = i18n($name).'を受諾してください。';
+    }
+}
+
 function nice_file_put_contents($filename, $data, $mode = 'w') {
     $fp = fopen($filename, $mode);
     fwrite($fp, $data);
