@@ -59,6 +59,14 @@ function validate_length_of($name, $options = array()) {
 
         }
     }
+
+    // is
+    if (isset($options['is'])) {
+        if ($options['is'] != mb_strlen($_REQUEST[$name])) {
+            $_ERROR[] = i18n($name).'は'.$options['is'].'文字にしてください。';
+
+        }
+    }
 }
 
 function validate_numericality_of($name, $options = array()) {
