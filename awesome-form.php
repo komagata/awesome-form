@@ -256,7 +256,7 @@ function select_field($name, $values = array(), $options = array()) {
     $html = "<select name=\"{$name}\"{$p}>";
     foreach ($values as $key => $value) {
         $select = ($v == $key) ? ' selected="selected"' : '';
-        $html .= "<option value=\"$value\"$select>$key</option>\n";
+        $html .= "<option value=\"$key\"$select>$value</option>\n";
     }
     $html .= '</select>';
     return $html;
