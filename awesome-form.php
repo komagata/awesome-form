@@ -274,7 +274,7 @@ function text_area($name, $options = array()) {
 function build_attributes($options = array()) {
     $attrs = array();
     foreach ($options as $key => $value) {
-        $attrs[] = "{$key}=\"{$value}\"";
+        $attrs[] = "{$key}=\"" . h($value) . "\"";
     }
     return (count($attrs) > 0) ? ' '.join(' ', $attrs) : '';
 }
