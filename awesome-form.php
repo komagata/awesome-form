@@ -116,6 +116,13 @@ function validate_inclusion_of($name, $options = array()) {
     }
 }
 
+function validate_format_of($name, $options = array()) {
+    global $_ERROR;
+    if (!preg_match($options['with'], $_REQUEST[$name])) {
+        $_ERROR[] = i18n($name).'は不正な値です。';
+    }
+}
+
 function nice_file_put_contents($filename, $data, $mode = 'w') {
     $fp = fopen($filename, $mode);
     fwrite($fp, $data);
