@@ -109,6 +109,13 @@ function validate_email_of($name) {
     }
 }
 
+function validate_inclusion_of($name, $options = array()) {
+    global $_ERROR;
+    if (!in_array($_REQUEST[$name], $options['in'])) {
+        $_ERROR[] = i18n($name).'は一覧にありません。';
+    }
+}
+
 function nice_file_put_contents($filename, $data, $mode = 'w') {
     $fp = fopen($filename, $mode);
     fwrite($fp, $data);
