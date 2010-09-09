@@ -266,7 +266,7 @@ function hidden_field($name, $options = array()) {
 }
 
 function text_area($name, $options = array()) {
-    $value = isset($_REQUEST[$name]) ? $_REQUEST[$name] : '';
+    $value = isset($_REQUEST[$name]) ? h($_REQUEST[$name]) : '';
     $p = build_attributes($options);
     return "<textarea name=\"{$name}\"{$p}>{$value}</textarea>";
 }
